@@ -1,0 +1,5 @@
+<input type="text" placeholder="Nome" (input)="onNameInput($event.target.value)" [value]="nome">
+
+<input type="text" placeholder="Potere" (input)="onPowerInput($event.target.value)" [value]="potere">
+
+<button (click)="save()">Save</button>
