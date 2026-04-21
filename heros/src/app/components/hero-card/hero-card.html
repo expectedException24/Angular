@@ -1,7 +1,12 @@
 <div class="card" [style.background-color]="hero.completata ? 'lightgreen' : 'white'">
   <h3>{{ hero.nome }}</h3>
   <p>Potere: {{ hero.potere }}</p>
-  <button (click)="notifyParent()" [disabled]="hero.completata">
-    Missione Compiuta
-  </button>
+  <div class="buttons">
+    <button (click)="notifyParent()" [disabled]="hero.completata" class="mission-btn">
+      Missione Compiuta
+    </button>
+    <button (click)="editHero()" [disabled]="hero.completata" class="edit-btn">
+      Modifica
+    </button>
+  </div>
 </div>

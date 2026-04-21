@@ -1,5 +1,11 @@
-<input type="text" placeholder="Nome" (input)="onNameInput($event.target.value)" [value]="nome">
+<div class="edit-form">
+  <h3>Modifica Eroe</h3>
+  <input type="text" placeholder="Nome" (input)="onNameInput($event.target.value)" [value]="nome">
 
-<input type="text" placeholder="Potere" (input)="onPowerInput($event.target.value)" [value]="potere">
+  <input type="text" placeholder="Potere" (input)="onPowerInput($event.target.value)" [value]="potere">
 
-<button (click)="save()">Save</button>
+  <div class="buttons">
+    <button (click)="save()">Salva</button>
+    <button (click)="cancel()" class="cancel-btn">Annulla</button>
+  </div>
+</div>

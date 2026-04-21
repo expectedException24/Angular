@@ -10,8 +10,13 @@ import { Hero } from '../../model/hero.model';
 export class HeroCard {
   @Input() hero!: Hero;
   @Output() onMissionDone = new EventEmitter<number>();
+  @Output() onEdit = new EventEmitter<Hero>();
 
   notifyParent() {
     this.onMissionDone.emit(this.hero.id);
+  }
+
+  editHero() {
+    this.onEdit.emit(this.hero);
   }
 }

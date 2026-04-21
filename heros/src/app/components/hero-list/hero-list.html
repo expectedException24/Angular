@@ -1,8 +1,21 @@
 <h1>Mission Control Center</h1>
 <div class="container">
-  <hero-card
-    *ngFor="let h of heroes" [hero]="h"
-    (onMissionDone)="markAsDone($event)">
-  </hero-card>
+  <div *ngIf="selectedHero; else heroListView">
+    <app-hero-edit
+      [hero]="selectedHero"
+      (heroUpdated)="updateHero($event)"
+      (canceled)="cancelEdit()">
+    </app-hero-edit>
+  </div>
+
+  <ng-template #heroListView>
+    <div class="heroes-grid">
+      <hero-card
+        *ngFor="let h of heroes" [hero]="h"
+        (onMissionDone)="markAsDone($event)"
+        (onEdit)="startEditHero($event)">
+      </hero-card>
+    </div>
+    <p>Missioni completate: {{ totalCompleted }}</p>
+  </ng-template>
 </div>
-<p>Missioni completate: {{ totalCompleted }}</p>
