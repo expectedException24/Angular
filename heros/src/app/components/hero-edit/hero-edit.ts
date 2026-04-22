@@ -19,7 +19,6 @@ export class HeroEdit {
   };
 
   @Output() heroUpdated = new EventEmitter<Hero>();
-  @Output() canceled = new EventEmitter<void>();
 
   nome: string = '';
   potere: string = '';
@@ -56,7 +55,5 @@ export class HeroEdit {
     }
   }
 
-  cancel() {
-    this.canceled.emit();
-  }
+
 }
