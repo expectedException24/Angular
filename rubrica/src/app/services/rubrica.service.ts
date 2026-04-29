@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Contatto {
-  id?: number;
+  _id?: string;
   nome: string;
   cognome: string;
   telefono: string;
@@ -14,7 +14,7 @@ export interface Contatto {
   providedIn: 'root'
 })
 export class RubricaService {
-  private apiUrl = 'https://crudcrud.com/api/3abf6257e7234a818765cb4b5fdc8c6f/rubrica'; 
+  private apiUrl = 'https://crudcrud.com/api/cb41774dc289470b92e63d8568cd5299/rubrica'; 
 
   constructor(private http: HttpClient) { }
 
@@ -22,7 +22,7 @@ export class RubricaService {
     return this.http.get<Contatto[]>(this.apiUrl)
   }
 
-  getContattoById(id: number): Observable<Contatto> {
+  getContattoById(id: string): Observable<Contatto> {
     return this.http.get<Contatto>(`${this.apiUrl}/${id}`)
   }
 
@@ -30,11 +30,11 @@ export class RubricaService {
     return this.http.post<Contatto>(this.apiUrl, contatto)
   }
 
-  aggiornaContatto(id: number, contatto: Contatto): Observable<Contatto> {
+  aggiornaContatto(id: string, contatto: Contatto): Observable<Contatto> {
     return this.http.put<Contatto>(`${this.apiUrl}/${id}`, contatto)
   }
 
-  eliminaContatto(id: number): Observable<void> {
+  eliminaContatto(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`)
   }
 

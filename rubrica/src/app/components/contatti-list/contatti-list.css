@@ -1,0 +1,78 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.contatti-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.contatto-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contatto-info {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.contatto-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.contatto-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.contatto-info strong {
+  color: #333;
+}
+
+.btn-delete {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-delete:hover {
+  background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+  .contatti-grid {
+    grid-template-columns: 1fr;
+  }
+}

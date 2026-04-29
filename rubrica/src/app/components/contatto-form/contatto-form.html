@@ -1,0 +1,49 @@
+<div class="form-container">
+  <button (click)="toggleForm()" class="btn-toggle">
+    {{ showForm() ? 'Annulla' : 'Aggiungi Contatto' }}
+  </button>
+
+  <form *ngIf="showForm()" (ngSubmit)="submit()" class="form">
+    <div class="form-group">
+      <label>Nome</label>
+      <input 
+        type="text" 
+        [(ngModel)]="nome" 
+        name="nome"
+        placeholder="Inserisci nome"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Cognome</label>
+      <input 
+        type="text" 
+        [(ngModel)]="cognome" 
+        name="cognome"
+        placeholder="Inserisci cognome"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Telefono</label>
+      <input 
+        type="tel" 
+        [(ngModel)]="telefono" 
+        name="telefono"
+        placeholder="Inserisci telefono"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input 
+        type="email" 
+        [(ngModel)]="mail" 
+        name="mail"
+        placeholder="Inserisci email"
+      />
+    </div>
+
+    <button type="submit" class="btn-submit">Salva Contatto</button>
+  </form>
+</div>
