@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Contatto {
-  _id?: string;
+  id?: string;
   nome: string;
   cognome: string;
   telefono: string;
@@ -14,7 +14,7 @@ export interface Contatto {
   providedIn: 'root'
 })
 export class RubricaService {
-  private apiUrl = 'https://crudcrud.com/api/cb41774dc289470b92e63d8568cd5299/rubrica'; 
+  private apiUrl = 'https://ca3c859242e65371cf3b.free.beeceptor.com/contatti'; 
 
   constructor(private http: HttpClient) { }
 

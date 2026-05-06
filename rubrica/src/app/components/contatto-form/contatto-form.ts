@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Contatto } from '../../services/rubrica.service';
+import { v4 as uuidv4 } from "uuid";
 
 @Component({
   selector: 'app-contatto-form',
@@ -12,7 +13,7 @@ import { Contatto } from '../../services/rubrica.service';
 })
 export class ContattoFormComponent {
   @Output() onContatto = new EventEmitter<Contatto>();
-
+  id = uuidv4();
   nome = signal('');
   cognome = signal('');
   telefono = signal('');
@@ -24,6 +25,7 @@ export class ContattoFormComponent {
       return;
 
     const contatto: Contatto = {
+      id: this.id,
       nome: this.nome(),
       cognome: this.cognome(),
       telefono: this.telefono(),
@@ -35,6 +37,7 @@ export class ContattoFormComponent {
   }
 
   reset() {
+    this.id = uuidv4();
     this.nome.set('');
     this.cognome.set('');
     this.telefono.set('');

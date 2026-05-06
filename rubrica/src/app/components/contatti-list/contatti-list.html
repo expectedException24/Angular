@@ -3,20 +3,14 @@
   
   <app-contatto-form (onContatto)="aggiungiContatto($event)"></app-contatto-form>
 
-  <div *ngIf="loading()" class="loading">Caricamento...</div>
-
-  <div *ngIf="!loading() && contatti().length === 0" class="empty">
-    Nessun contatto presente
-  </div>
-
-  <div *ngIf="contatti().length > 0" class="contatti-grid">
+  <div class="contatti-grid">
     <div *ngFor="let contatto of contatti()" class="contatto-card">
       <div class="contatto-info">
         <h3>{{ contatto.nome }} {{ contatto.cognome }}</h3>
         <p><strong>Telefono:</strong> {{ contatto.telefono }}</p>
         <p><strong>Email:</strong> {{ contatto.mail }}</p>
       </div>
-      <button (click)="eliminaContatto(contatto._id)" class="btn-delete">Elimina</button>
+      <button (click)="eliminaContatto(contatto.id)" class="btn-delete">Elimina</button>
     </div>
   </div>
 </div>

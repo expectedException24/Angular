@@ -12,7 +12,6 @@ import { ContattoFormComponent } from '../contatto-form/contatto-form';
 })
 export class ContattiListComponent implements OnInit {
   contatti = signal<Contatto[]>([]);
-  loading = signal(false);
 
   constructor(private rubricaService: RubricaService) {}
 
@@ -21,11 +20,9 @@ export class ContattiListComponent implements OnInit {
   }
 
   caricaContatti() {
-    this.loading.set(true);
     this.rubricaService.getContatti().subscribe({
       next: (data) => {
         this.contatti.set(data);
-        this.loading.set(false);
       }
     });
   }
@@ -38,9 +35,9 @@ export class ContattiListComponent implements OnInit {
     });
   }
 
-  eliminaContatto(_id?: string) {
-    if (!_id) return;
-    this.rubricaService.eliminaContatto(_id).subscribe({
+  eliminaContatto(id?: string) {
+    if (!id) return;
+    this.rubricaService.eliminaContatto(id).subscribe({
       next: () => {
         this.caricaContatti();
       }
